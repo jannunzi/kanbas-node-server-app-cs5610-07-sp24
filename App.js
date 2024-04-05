@@ -10,6 +10,11 @@ import cors from "cors";
 import session from "express-session";
 import SessionExercise from "./SessionExercise.js";
 import UserRoutes from "./Users/routes.js";
+import LikesRoutes from "./Napster/likes/routes.js";
+
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost:27017/kanbas-sp24-thu");
 
 const app = express();
 app.use(
@@ -35,4 +40,6 @@ UserRoutes(app);
 Assignments(app);
 Calulator(app);
 Hello(app);
+LikesRoutes(app);
+
 app.listen(4000);
